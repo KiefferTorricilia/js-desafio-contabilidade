@@ -1,15 +1,14 @@
 const validarEntradaDeDados = (lancamento) => {
 
-// console.log(lancamento)
-// console.log( typeof lancamento.valor)
+console.log(lancamento)
+console.log( typeof lancamento.valor)
 
 let message;
 
-const valorCpf = document.getElementById('cpf').value;
 
-const verificaValidade = TestaCPF(valorCpf) ? null : message = "O cpf informado não é válido.";
+const verificaValidade = TestaCPF(lancamento.cpf) ? null : message = "O cpf informado não é válido.";
 
-const verificaNumero = isNumeric(valorCpf) ? null : message = "O cpf informado deve conter apenas números.";
+const verificaNumero = isNumeric(lancamento.cpf) ? null : message = "O cpf informado deve conter apenas números.";
 
 const verificaSuperior = lancamento.valor < 15000.00 ? null : message = "O valor informado não pode ser superior a R$: 15000,00 reais.";
 
@@ -31,9 +30,9 @@ switch(message){
 }
 
 const recuperarSaldosPorConta = (lancamentos) => {
-   // console.log("Chegou", lancamentos)
-   // console.log(lancamentos[0].valor)
-   // console.log( typeof lancamentos[0].valor)
+   console.log("Chegou", lancamentos)
+   console.log(lancamentos[0].valor)
+   console.log( typeof lancamentos[0].valor)
 
    return []
 }
