@@ -1,25 +1,19 @@
-
-
 const validarEntradaDeDados = (lancamento) => {
+
+// console.log(lancamento)
+// console.log( typeof lancamento.valor)
 
 let message;
 
 const valorCpf = document.getElementById('cpf').value;
 
-const valorDinheiro = document.getElementById('valor').value;
-
 const verificaValidade = TestaCPF(valorCpf) ? null : message = "O cpf informado não é válido.";
 
 const verificaNumero = isNumeric(valorCpf) ? null : message = "O cpf informado deve conter apenas números.";
 
-// const verificaDinheiro = valorDinheiro ? null : message = "O valor informado deve conter apenas números";
+const verificaSuperior = lancamento.valor < 15000.00 ? null : message = "O valor informado não pode ser superior a R$: 15000,00 reais.";
 
-const verificaSuperior = valorDinheiro < 15000.00 ? null : message = "O valor informado não pode ser superior a R$: 15000,00 reais.";
-
-const verificaInferior = valorDinheiro > -2000.00 ? null : message = "O valor informado não pode ser inferior a R$: -2000,00.";
-
-
-
+const verificaInferior = lancamento.valor > -2000.00 ? null : message = "O valor informado não pode ser inferior a R$: -2000,00.";
 
 switch(message){
 	case verificaValidade:
@@ -32,12 +26,15 @@ switch(message){
 		return verificaInferior;
 	default:
 		return null;	
-}
-
+};
 
 }
 
 const recuperarSaldosPorConta = (lancamentos) => {
+   // console.log("Chegou", lancamentos)
+   // console.log(lancamentos[0].valor)
+   // console.log( typeof lancamentos[0].valor)
+
    return []
 }
 
@@ -80,6 +77,9 @@ function TestaCPF(strCPF) {
 }
 
 
+// let Nome = parseFloat("1.234,78".replace(/\./g, '').replace(',', '.'))
+// console.log(typeof Nome);
+// console.log(Nome)
 
 
 

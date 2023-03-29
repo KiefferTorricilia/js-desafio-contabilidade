@@ -15,7 +15,7 @@ const salvarLancamento = () => {
         try {
             const lancamento = { 
                 cpf: inputCpf.value == '' ? null : inputCpf.value, 
-                valor: Number(inputValor.value) == '' ? null :  Number(inputValor.value)
+                valor: inputValor.value == '' ? null :  parseFloat(inputValor.value.replace(/\./g, '').replace(',', '.'))
             }
             const mensagemValidacao = validarEntradaDeDados(lancamento)
             if (mensagemValidacao) {
