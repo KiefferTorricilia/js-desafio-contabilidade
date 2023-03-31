@@ -1,10 +1,10 @@
+
 const validarEntradaDeDados = (lancamento) => {
 
-console.log(lancamento)
-console.log( typeof lancamento.valor)
+// console.log(lancamento)
+// console.log( typeof lancamento.valor)
 
 let message;
-
 
 const verificaValidade = TestaCPF(lancamento.cpf) ? null : message = "O cpf informado não é válido.";
 
@@ -30,11 +30,27 @@ switch(message){
 }
 
 const recuperarSaldosPorConta = (lancamentos) => {
-   console.log("Chegou", lancamentos)
-   console.log(lancamentos[0].valor)
-   console.log( typeof lancamentos[0].valor)
+  console.log(lancamentos);
+  let teste = [...lancamentos]
+  console.log(teste)
 
-   return []
+  const x = lancamentos
+  const y = []
+  let inserir = true;
+ for (let i = 0; i< x.length; i++) {
+   for (let j = 0; j< y.length;j++) {
+     if (y[j].cpf === x[i].cpf) {
+       inserir = false;
+       y[j].valor += x[i].valor;
+     }
+   }
+   if (inserir) {
+     y.push(x[i])
+   }
+ }
+ console.log(y)
+
+   return y
 }
 
 const recuperarMaiorMenorLancamentos = (cpf, lancamentos) => {
@@ -48,6 +64,8 @@ const recuperarMaioresSaldos = (lancamentos) => {
 const recuperarMaioresMedias = (lancamentos) => {
     return []
 }
+
+
 
 const isNumeric = function(value) {
 
@@ -75,10 +93,6 @@ function TestaCPF(strCPF) {
    return true;
 }
 
-
-// let Nome = parseFloat("1.234,78".replace(/\./g, '').replace(',', '.'))
-// console.log(typeof Nome);
-// console.log(Nome)
 
 
 
